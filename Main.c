@@ -6,11 +6,13 @@ int main(int argc, char* argv[]){
   FILE* file;
   char ch;
   int cont_lineas, cont_palabras, cont_caracteres, cont_letras;
+  int seAbrio;
 
   if( argc == 2 ) {
 
       // Abrir archivo en modo lectura(read)
       file = fopen(argv[1],"r");
+      seAbrio=1;
       cont_lineas = 0;
       cont_palabras = 0;
       cont_caracteres = 0;
@@ -52,6 +54,7 @@ int main(int argc, char* argv[]){
      if (comando[1]==lineas[1]) {//lineas
         //printf("lineas\n");
         file = fopen(argv[2],"r");
+        seAbrio=1;
         cont_lineas = 0;
         if (file){
          while ((ch=getc(file)) != EOF) {
@@ -65,6 +68,7 @@ int main(int argc, char* argv[]){
         printf("Lineas : %d \n", cont_lineas);
      }else if(comando[1]==palabras[1]){ //palabras
        file = fopen(argv[2],"r");
+       seAbrio=1;
        cont_palabras = 0;
        if (file){
         while ((ch=getc(file)) != EOF) {
@@ -84,6 +88,7 @@ int main(int argc, char* argv[]){
 
      }else if(comando[1]==caracteres[1]){ //caracteres
        file = fopen(argv[2],"r");
+       seAbrio=1;
        cont_caracteres = 0;
        if (file){
         while ((ch=getc(file)) != EOF) {
@@ -104,6 +109,9 @@ int main(int argc, char* argv[]){
    }
 
 //getchar();
-fclose(file);
-return(0);
+  if(seAbrio==1){
+      fclose(file);
+  }
+
+  return(0);
 }
