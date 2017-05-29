@@ -99,13 +99,11 @@ int main(int argc, char* argv[]){
      }
 
    }//fin else if(argc==3)
-   else if( argc > 3 ) {
-      printf("Argumentos invalidos,Ejemplo comando correcto: ./wc -l Archivo.txt .\n");
-   }
    else {
-      printf("Se esperaba argumento.\n");
+      printf("Se esperaba argumento Valido.\n");
    }
 
 //getchar();
+fclose(file);
 return(0);
 }
